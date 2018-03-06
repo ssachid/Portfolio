@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+
   def index
     @profile_items = Profile.all
   end
@@ -18,7 +20,25 @@ class ProfilesController < ApplicationController
     end
   end
 
+    def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @profile_item.update(profile_params)
+        format.html { redirect_to profiles_path, notice: "Profile was successfully updated"}
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
   private
+
+  def set_profile
+    @profile_item = Profile.find(params[:id])
+  end
+
   def profile_params
     params.require(:profile).permit(:title, :subtitle, :body)
   end
