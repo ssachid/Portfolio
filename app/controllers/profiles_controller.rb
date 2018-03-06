@@ -37,6 +37,14 @@ class ProfilesController < ApplicationController
 
   end
 
+  def destroy
+    @profile_item.destroy
+    respond_to do |format|
+      format.html { redirect_to profiles_url, notice: "Profile destroyed"}
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def set_profile
