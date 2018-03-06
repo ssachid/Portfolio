@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :profiles
+  resources :profiles, except: [:show]
+  get '/profile/:id', to: "profiles#show", as: 'profile_show'
   get 'pages/home'
   root "pages#home"
   get "about-me", to: 'pages#about'
