@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
     end
   end
 
-    def edit
+  def edit
   end
 
   def update
@@ -31,6 +31,10 @@ class ProfilesController < ApplicationController
         format.html { render :edit }
       end
     end
+  end
+
+  def show
+
   end
 
   private
