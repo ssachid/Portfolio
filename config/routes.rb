@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blogs
   resources :profiles, except: [:show]
   get '/profile/:id', to: "profiles#show", as: 'profile_show'
   get 'pages/home'
