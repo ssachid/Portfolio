@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
 
   def new
     @profile_item = Profile.new
+    3.times { @profile_item.technologies.build }
   end
 
   def create
@@ -52,6 +53,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:title, :subtitle, :body)
+    params.require(:profile).permit(:title, :subtitle, :body, technologies_attributes: [:name])
   end
 end
