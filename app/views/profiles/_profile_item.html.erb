@@ -4,4 +4,3 @@
 <p><%= image_tag(item.thumb_image) unless item.thumb_image.nil? %></p>
 <p><%= link_to "Edit", edit_profile_path(item) %></p>
 <p><%= link_to "Delete Profile Item", profile_path(item), method: :delete, data: {confirm: "Are you sure?"} %></p>
-<hr>
